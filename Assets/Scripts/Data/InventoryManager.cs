@@ -48,13 +48,13 @@ namespace DeckBuilder.Data
             }
 
             ownedCharacters.Clear();
-            int count = Random.Range(10, 256); // 10 to 255
-            
+            int count = 10;
+
             for (int i = 0; i < count; i++)
             {
                 // Randomly pick from master list
                 CharacterData original = masterCharacterList[Random.Range(0, masterCharacterList.Count)];
-                
+
                 // Create an instance so we can set acquisition ID without modifying the original asset
                 CharacterData instance = Instantiate(original);
                 instance.acquisitionId = i;
@@ -65,7 +65,7 @@ namespace DeckBuilder.Data
         public void AddToDeck(int slotIndex, CharacterData character)
         {
             if (slotIndex < 0 || slotIndex >= currentDeck.Length) return;
-            
+
             // If the character is already in another slot, remove it from there (unique deck check)
             for (int i = 0; i < currentDeck.Length; i++)
             {
