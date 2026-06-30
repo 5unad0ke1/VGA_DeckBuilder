@@ -24,8 +24,6 @@ namespace DeckBuilder.UI
 
         private void SetItem(CharacterUIItem item)
         {
-            // If there was an item already, we might want to return it to inventory or swap
-            // For simplicity in this prototype, we'll just allow overriding
 
             item.transform.SetParent(transform);
             item.transform.localPosition = Vector3.zero;

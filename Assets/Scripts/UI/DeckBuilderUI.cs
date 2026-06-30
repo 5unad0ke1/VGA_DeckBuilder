@@ -41,20 +41,19 @@ namespace DeckBuilder.UI
 
         private void Start()
         {
-            // Initial render
             RefreshInventory();
             RefreshUI();
         }
 
         public void RefreshInventory()
         {
-            // Clear current inventory UI
+
             foreach (Transform child in inventoryContainer)
             {
                 Destroy(child.gameObject);
             }
 
-            // Populate from InventoryManager
+
             foreach (var charData in InventoryManager.Instance.OwnedCharacters)
             {
                 GameObject obj = Instantiate(characterPrefab, inventoryContainer);
@@ -77,7 +76,7 @@ namespace DeckBuilder.UI
                 totalCostText.color = normalCostColor;
             }
 
-            statusMessageText.text = ""; // Clear status
+            statusMessageText.text = "";
         }
 
         private void SortAndRefresh(SortType sortType)

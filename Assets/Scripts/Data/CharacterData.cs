@@ -9,8 +9,7 @@ namespace DeckBuilder.Data
         public int cost;
         public int hp;
         public Sprite icon;
-        
-        // Used for sorting by "Acquisition order"
+
         [HideInInspector] public int acquisitionId;
     }
 }

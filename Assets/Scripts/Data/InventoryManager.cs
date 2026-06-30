@@ -33,7 +33,6 @@ namespace DeckBuilder.Data
 
         private void InitializeInventory()
         {
-            // Fallback: Generate dummy data if master list is empty
             if (masterCharacterList.Count == 0)
             {
                 Debug.Log("Master list empty. Generating 10 dummy character types.");
@@ -52,10 +51,8 @@ namespace DeckBuilder.Data
 
             for (int i = 0; i < count; i++)
             {
-                // Randomly pick from master list
                 CharacterData original = masterCharacterList[Random.Range(0, masterCharacterList.Count)];
 
-                // Create an instance so we can set acquisition ID without modifying the original asset
                 CharacterData instance = Instantiate(original);
                 instance.acquisitionId = i;
                 ownedCharacters.Add(instance);
@@ -66,7 +63,6 @@ namespace DeckBuilder.Data
         {
             if (slotIndex < 0 || slotIndex >= currentDeck.Length) return;
 
-            // If the character is already in another slot, remove it from there (unique deck check)
             for (int i = 0; i < currentDeck.Length; i++)
             {
                 if (currentDeck[i] == character)
